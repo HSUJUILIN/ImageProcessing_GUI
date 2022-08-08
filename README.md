@@ -1,5 +1,5 @@
 # ImageProcessing_GUI
-Image processing by GUI
+Image processing by GUI (opencv)
 
 1. cv2_ThresholdByTrackBar.py
 

@@ -1,7 +1,7 @@
 # ImageProcessing_GUI
 Image processing by GUI
 
-1. CV2_ThresholdByTrackBar.py
+1. cv2_ThresholdByTrackBar.py
 
     Introduction:    
         Apply GUI to output the threshold number
@@ -15,7 +15,7 @@ Image processing by GUI
     State:
         Finish
 
-2. CV2_SelectROI.py
+2. cv2_SelectROI.py
 
     Introduction:
         Apply GUI to output the coordinate of the ROI

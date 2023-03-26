@@ -18,11 +18,11 @@ def get_Threshold():
 
     cv2.createTrackbar("Max", "Threshold", 0, 255, nothing)
 
-    while(1):
+    while (1):
 
         img = cv2.imread(file_path, 0)
 
-        scale_percent = 60
+        scale_percent = 100
         width = int(img.shape[1] * scale_percent / 100)
         height = int(img.shape[0] * scale_percent / 100)
         dim = (width, height)

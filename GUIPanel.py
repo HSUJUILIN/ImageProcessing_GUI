@@ -6,7 +6,7 @@ window = tk.Tk()
 window.title('GUI')
 window.geometry('360x480')
 window.resizable(True, True)
-window.iconbitmap('D:/NCTU G-Suite/patrick.png')
+window.iconbitmap('D:/github/ImageProcessing_GUI/Figures/Icon.bmp')
 
 
 window.mainloop()

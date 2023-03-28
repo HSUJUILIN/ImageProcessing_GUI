@@ -1,17 +1,14 @@
-""" Sort the project and create GUI """
-
-""" Import Modules """
-
-""" Functions and Variables """
-
-
-""" Main Programme """
+""" Import Packages """
 import os
 import cv2
 from tkinter import filedialog
+
+""" Functions and Variables """
 default_dir = 'D:/'
 file_path = filedialog.askopenfilename(
     title=u'choose file', initialdir=(os.path.expanduser(default_dir)))
+
+""" Main Programme """
 img = cv2.imread(file_path, 0)
 
 showCrosshair = False

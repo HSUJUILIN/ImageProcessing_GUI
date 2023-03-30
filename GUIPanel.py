@@ -42,19 +42,19 @@ window.resizable(True, True)
 window.iconbitmap("D:/github/ImageProcessing_GUI/Figures/Icon.ico")
 
 # Groups
-# Group_panel = tk.LabelFrame(window, text='', width=770, height=570)
-# Group_panel.place(x=10, y=300)
-# Group_panel.pack()
+Group_panel = tk.LabelFrame(window, text='', width=770, height=570)
+Group_panel.place(x=10, y=10)
+Group_panel.pack()
 
-Group_region1 = tk.LabelFrame(
-    window, text='Basic function', width=200, height=320)
-Group_region1.place(x=10, y=10)
-Group_region1.pack()
+# Group_region1 = tk.LabelFrame(
+#     window, text='Basic function', width=200, height=320)
+# Group_region1.place(x=10, y=10)
+# Group_region1.pack()
 
-Group_region2 = tk.LabelFrame(
-    window, text='Advanced function', width=200, height=320)
-Group_region1.place(x=300, y=340)
-Group_region1.pack()
+# Group_region2 = tk.LabelFrame(
+#     window, text='Advanced function', width=200, height=320)
+# Group_region1.place(x=300, y=340)
+# Group_region1.pack()
 
 # Labels
 menu1 = tk.Menu(window)

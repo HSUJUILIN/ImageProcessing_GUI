@@ -1,17 +1,19 @@
 ''' Import packages '''
 import os
 import tkinter as tk
-from tkinter import filedialog
 from PIL import ImageTk, Image
+from tkinter import filedialog
 
-''' Functions and Variables '''
+# ''' Functions and Variables '''
 default_dir = "D:/"
 
 
-def ChooseFile():
+def ChooseImage():
     file_path = filedialog.askopenfilename(
         title=u'choose file', initialdir=(os.path.expanduser(default_dir)), filetypes=(("png files", "*.png"), ("all files", "*.*")))
-    print(file_path)
+    img = ImageTk.PhotoImage(Image.open(file_path))
+    frame.configure(image=img)
+    frame.image = img
 
 
 def SaveFile():
@@ -23,7 +25,11 @@ def DumpFile():
 
 
 def DisplayImage():
-    print('Display...')
+    file_path = filedialog.askopenfilename(
+        title=u'choose file', initialdir=(os.path.expanduser(default_dir)), filetypes=(("png files", "*.png"), ("all files", "*.*")))
+    img = ImageTk.PhotoImage(Image.open(file_path))
+    frame.configure(image=img)
+    frame.image = img
 
 
 ''' Main Programme '''
@@ -35,16 +41,20 @@ window.geometry('800x600')
 window.resizable(True, True)
 window.iconbitmap("D:/github/ImageProcessing_GUI/Figures/Icon.ico")
 
-# Frames
-frame = tk.Frame(window, width=400, height=300)
-frame.pack()
-frame.place(x=200, y=50)
+# Groups
+# Group_panel = tk.LabelFrame(window, text='', width=770, height=570)
+# Group_panel.place(x=10, y=300)
+# Group_panel.pack()
 
+Group_region1 = tk.LabelFrame(
+    window, text='Basic function', width=200, height=320)
+Group_region1.place(x=10, y=10)
+Group_region1.pack()
 
-img = ImageTk.PhotoImage(Image.open(
-    'D:/github/ImageProcessing_GUI/Figures/Icon.ico'))
-label = tk.Label(frame, image=img)
-label.pack()
+Group_region2 = tk.LabelFrame(
+    window, text='Advanced function', width=200, height=320)
+Group_region1.place(x=300, y=340)
+Group_region1.pack()
 
 # Labels
 menu1 = tk.Menu(window)
@@ -52,30 +62,35 @@ window.config(menu=menu1)
 
 # Second Layer Labels
 menu2 = tk.Menu(menu1, tearoff=0)
-menu2.add_command(label='Open...', command=ChooseFile)
+menu2.add_command(label='Open...', command=ChooseImage)
 menu2.add_command(label='Save...', command=SaveFile)
 menu1.add_cascade(label='File', menu=menu2)
 
 # Buttons
-button_Display = tk.Button(text='Diaplay')
-button_Display.place(x=0, y=0)
-button_Display.pack()
+Button_ = tk.Button(window)
 
 window.mainloop()
 
 # ''' Work Space '''
-# from tkinter import *
 
 
-# def motion(event):
-#     print("Mouse position: (%s %s)" % (event.x, event.y))
-#     return
+# def browse_image():
+#     file_path = tk.filedialog.askopenfilename()
+#     img = Image.open(file_path)
+#     img = img.resize((250, 250), Image.LANCZOS)
+#     img = ImageTk.PhotoImage(img)
+#     panel.configure(image=img)
+#     panel.image = img
 
 
-# master = Tk()
-# whatever_you_do = "Whatever you do will be insignificant, but it is very important that you do it.\n(Mahatma Gandhi)"
-# msg = Message(master, text=whatever_you_do)
-# msg.config(bg='lightgreen', font=('times', 24, 'italic'))
-# msg.bind('<Motion>', motion)
-# msg.pack()
-# mainloop()
+# root = tk.Tk()
+# root.title("Image Viewer")
+# root.geometry("500x500")
+
+# browse_button = tk.Button(root, text="Browse", command=browse_image)
+# browse_button.pack()
+
+# panel = tk.Label(root)
+# panel.pack()
+
+# root.mainloop()

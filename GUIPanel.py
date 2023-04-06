@@ -12,8 +12,6 @@ def ChooseImage():
     file_path = filedialog.askopenfilename(
         title=u'choose file', initialdir=(os.path.expanduser(default_dir)), filetypes=(("png files", "*.png"), ("all files", "*.*")))
     img = ImageTk.PhotoImage(Image.open(file_path))
-    frame.configure(image=img)
-    frame.image = img
 
 
 def SaveFile():
@@ -24,14 +22,6 @@ def DumpFile():
     print('Dumping...')
 
 
-def DisplayImage():
-    file_path = filedialog.askopenfilename(
-        title=u'choose file', initialdir=(os.path.expanduser(default_dir)), filetypes=(("png files", "*.png"), ("all files", "*.*")))
-    img = ImageTk.PhotoImage(Image.open(file_path))
-    frame.configure(image=img)
-    frame.image = img
-
-
 ''' Main Programme '''
 
 # Windows Constructure
@@ -39,22 +29,9 @@ window = tk.Tk()
 window.title('GUI')
 window.geometry('800x600')
 window.resizable(True, True)
+window.config(bg='black')
 window.iconbitmap("D:/github/ImageProcessing_GUI/Figures/Icon.ico")
 
-# Groups
-Group_panel = tk.LabelFrame(window, text='', width=770, height=570)
-Group_panel.place(x=10, y=10)
-Group_panel.pack()
-
-# Group_region1 = tk.LabelFrame(
-#     window, text='Basic function', width=200, height=320)
-# Group_region1.place(x=10, y=10)
-# Group_region1.pack()
-
-# Group_region2 = tk.LabelFrame(
-#     window, text='Advanced function', width=200, height=320)
-# Group_region1.place(x=300, y=340)
-# Group_region1.pack()
 
 # Labels
 menu1 = tk.Menu(window)
@@ -66,8 +43,16 @@ menu2.add_command(label='Open...', command=ChooseImage)
 menu2.add_command(label='Save...', command=SaveFile)
 menu1.add_cascade(label='File', menu=menu2)
 
+# Frames
+LeftTop_frame = tk.Frame(window, width=200, height=400)
+LeftTop_frame.grid(row=0, column=0, padx=10, pady=5)
+
+Right_frame = tk.Frame(window, width=550, height=400)
+Right_frame.grid(row=0, column=1, padx=10, pady=5)
+
+
 # Buttons
-Button_ = tk.Button(window)
+# Button_ = tk.Button(window)
 
 window.mainloop()
 

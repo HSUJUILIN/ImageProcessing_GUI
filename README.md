@@ -8,7 +8,7 @@ This repositories is still being organized!!!
         Apply GUI to output the threshold number
 
     Version:
-        first release: (GMT+8) 2020/10/17 17:30 finish.
+        first release: (GMT+8) 2020/10/17 17:30 finish.\n
         second release: (GMT+8) 2022/08/08 14:37 simplify the code.
 
     Note:

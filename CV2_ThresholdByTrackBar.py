@@ -43,7 +43,7 @@ def get_Threshold():
 
 
 """ Main Programme """
-default_dir = 'C:/'
+default_dir = 'D:/'
 file_path = filedialog.askopenfilename(
     title=u'choose file', initialdir=(os.path.expanduser(default_dir)))
 print('After choose threshold, press \"ESC\" to return the threshold number')

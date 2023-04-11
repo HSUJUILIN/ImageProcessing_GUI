@@ -40,4 +40,4 @@ This repositories is still being organized!!!
         second release: (GMT+8) 2023/04/11 17:15 Add preview image function.  
 
     Note:  
-        Complete the preview function.
+        Complete the preview  function.

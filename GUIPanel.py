@@ -2,7 +2,7 @@
 import os
 import tkinter as tk
 from PIL import ImageTk, Image
-from tkinter import filedialog
+from tkinter import filedialog, ttk
 
 # ''' Functions and Variables '''
 default_dir = "D:/"
@@ -11,17 +11,24 @@ default_dir = "D:/"
 def ChooseImage():
     file_path = filedialog.askopenfilename(
         title=u'choose file', initialdir=(os.path.expanduser(default_dir)), filetypes=(("png files", "*.png"), ("tif files", "*.tif"),  ("all files", "*.*")))
-    # img = ImageTk.PhotoImage(Image.open(file_path))
-    image = Image.open(file_path)
-    if (image.size[0] >= image.size[1]):
-        image.thumbnail((100, 100/image.size[0]*image.size[1]))
-    elif (image.size[0] < image.size[1]):
-        image.thumbnail((100/image.size[1]*image.size[0], 100))
+    filename = os.path.basename(file_path)
+    ori_image = Image.open(file_path)
+    info = f"File Name: {filename}\nWidth: {ori_image.width} px\nHeight: {ori_image.height} px\nFormat: {ori_image.format}\n"
+    InfoSample.config(text=info)
+    if (ori_image.size[0] >= ori_image.size[1]):
+        ori_image.thumbnail((140, 140/ori_image.size[0]*ori_image.size[1]))
+    elif (ori_image.size[0] < ori_image.size[1]):
+        ori_image.thumbnail((140/ori_image.size[1]*ori_image.size[0], 140))
     else:
-        print('Where is your FXXKING IMAGE!!?')
-    img = ImageTk.PhotoImage(image)
+        pass
+    img = ImageTk.PhotoImage(ori_image)
     SubSample.config(image=img)
     SubSample.image = img
+
+
+# def clear():
+#     height.set("")
+#     width.set("")
 
 
 def SaveFile():
@@ -36,7 +43,7 @@ def DumpFile():
 
 # Windows Constructure
 window = tk.Tk()
-window.title('GUI')
+window.title('Image Processing GUI')
 window.geometry('800x600')
 window.resizable(True, True)
 window.config(bg='grey')
@@ -57,16 +64,20 @@ window.iconbitmap("D:/github/ImageProcessing_GUI/Figures/Icon.ico")
 LeftTop_frame = tk.Frame(window, width=200, height=400)
 LeftTop_frame.place(x=5, y=5, height=400, width=200)
 LeftBottom_frame = tk.Frame(window, width=200, height=180)
-LeftBottom_frame.place(x=5, y=410, height=165, width=200)
+LeftBottom_frame.place(x=5, y=410, height=185, width=200)
 
 Right_frame = tk.Frame(window, width=550, height=580)
-Right_frame.place(x=210, y=5, height=570, width=600)
+Right_frame.place(x=210, y=5, height=590, width=585)
 
 # Labels (put the text or image)
-SubSample_title = tk.Label(LeftTop_frame, text='Basic Tools')
+SubSample_title = tk.Label(
+    LeftTop_frame, text='Image Information', font=("Arial", 15))
 SubSample_title.place(y=0, width=180)
 SubSample = tk.Label(LeftTop_frame)
-SubSample.place(x=40, y=50, height=100, width=100)
+SubSample.place(x=20, y=70, height=140, width=140)
+InfoSample = tk.Label(LeftTop_frame, text="")
+InfoSample.place(x=100, y=250, anchor="center")
+# SubSample_information = tk.Label(LeftTop_frame, text='Information')
 
 # file_path = filedialog.askopenfilename(
 #     title=u'choose file', initialdir=(os.path.expanduser(default_dir)), filetypes=(("png files", "*.png"), ("tif files", "*.tif"),  ("all files", "*.*")))
@@ -78,7 +89,13 @@ SubSample.place(x=40, y=50, height=100, width=100)
 # Buttons
 Button_LoadImage = tk.Button(
     LeftTop_frame, text='Load...', command=ChooseImage)
-Button_LoadImage.place(x=0, y=20)
+Button_LoadImage.place(x=0, y=40)
+
+# Entries
+
+# Separators
+Separator1 = ttk.Separator(LeftTop_frame, orient='horizontal')
+Separator1.place(relx=0, y=280, relwidth=1, relheight=0.1)
 
 window.mainloop()
 

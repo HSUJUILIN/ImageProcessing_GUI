@@ -24,6 +24,7 @@ def ChooseImage():
     img = ImageTk.PhotoImage(ori_image)
     SubSample.config(image=img)
     SubSample.image = img
+    StateWindow.insert(0, "Loading image...")
 
 
 # def clear():
@@ -91,11 +92,13 @@ Button_LoadImage = tk.Button(
     LeftTop_frame, text='Load...', command=ChooseImage)
 Button_LoadImage.place(x=0, y=40)
 
-# Entries
+# Texts
+StateWindow = tk.Text(LeftTop_frame, height=6)
+StateWindow.place(x=10, y=285, relwidth=0.9, height=110)
 
 # Separators
 Separator1 = ttk.Separator(LeftTop_frame, orient='horizontal')
-Separator1.place(relx=0, y=280, relwidth=1, relheight=0.1)
+Separator1.place(relx=0, y=280, relwidth=1, relheight=0.01)
 
 window.mainloop()
 

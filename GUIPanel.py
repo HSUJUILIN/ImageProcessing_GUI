@@ -69,8 +69,9 @@ def Tutorial():
     Tutorial.geometry('500x500')
     Text_Tutorial = tk.Text(Tutorial)
     Text_Tutorial.place(x=5, y=5, width=490, height=490)
-    Text_Tutorial.insert(
-        tk.END, 'This is the tutorial of this GUI program.\n\n====================================================================\n\n1. The main Page:\n\n    (1)Image information:There is a preview window\n\n    (2)Window information:')
+    tutorialfile = "ImageProcessing_GUI/Tutorial.txt"
+    with open(tutorialfile, 'r') as f:
+        Text_Tutorial.insert(tk.INSERT, f.read())
     Text_Tutorial.config(state=tk.DISABLED)
 
 

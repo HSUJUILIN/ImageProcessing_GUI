@@ -36,9 +36,10 @@ This repositories is still being organized!!!
         Integrate the method of the image process
 
     Version:  
-        first release: (GMT+8) 2022/08/11 Create the panel and design the user interface.  
-        second release: (GMT+8) 2023/04/11 17:15 Add preview image function.  
-        third release: (GMT+8) 2023/04/13 17:28 Add image imformation and the real-time state window (scrollbar)
+        first edit: (GMT+8) 2022/08/11 Create the panel and design the user interface.  
+        second edit: (GMT+8) 2023/04/11 17:15 Add preview image function.  
+        third edit: (GMT+8) 2023/04/13 17:28 Add image imformation and the real-time state window (scrollbar).
+        fourth edit: (GMT+8) 2023/04/17 15:38 Add ticks, "Quit" event(tick), and the pop-up messagebox before closed GUI.
 
     Note:  
         Complete the preview  function.

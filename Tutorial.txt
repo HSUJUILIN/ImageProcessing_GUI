@@ -1,0 +1,15 @@
+This is the tutorial of the GUI program.
+
+====================================================================
+
+1. The main page
+
+    (1) Image Information
+
+            At this panel, there are two button at the top. One is 
+        "choosing file then display in the below preview area" and
+        the other is quit the GUI.
+
+    (2) Else Information
+
+    (3) The Work Space

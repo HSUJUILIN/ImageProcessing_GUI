@@ -10,48 +10,68 @@ StateCount = 0
 
 
 def ChooseImage():
-    global StateCount
 
     file_path = filedialog.askopenfilename(
         title=u'choose file', initialdir=(os.path.expanduser(default_dir)), filetypes=(("png files", "*.png"), ("tif files", "*.tif"),  ("all files", "*.*")))
     filename = os.path.basename(file_path)
     ori_image = Image.open(file_path)
+    ori_image_ = Image.open(file_path)
     info = f"File Name: {filename}\nWidth: {ori_image.width} px\nHeight: {ori_image.height} px\nFormat: {ori_image.format}\n"
     InfoSample.config(text=info)
+
     if (ori_image.size[0] >= ori_image.size[1]):
         ori_image.thumbnail((140, 140/ori_image.size[0]*ori_image.size[1]))
     elif (ori_image.size[0] < ori_image.size[1]):
         ori_image.thumbnail((140/ori_image.size[1]*ori_image.size[0], 140))
     else:
         pass
-    if (ori_image.size[0] < 550 and ori_image.size[1] < 580):
-        pass
+
     img = ImageTk.PhotoImage(ori_image)
     SubSample.config(image=img)
     SubSample.image = img
+
+    if (ori_image_.size[0] > 550 and ori_image_.size[1] <= 580):
+        ori_image_.thumbnail((550, 550/ori_image_.size[0]*ori_image_.size[1]))
+    elif (ori_image_.size[0] <= 550 and ori_image_.size[1] > 580):
+        ori_image_.thumbnail((580/ori_image_.size[1]*ori_image_.size[0], 580))
+    elif (ori_image_.size[0] > 550 and ori_image_.size[1] > 580):
+
+        if (ori_image_.size[0]/550 > ori_image_.size[1]/580):
+            ori_image_.thumbnail(
+                (550, 550/ori_image_.size[0]*ori_image_.size[1]))
+        elif (ori_image_.size[0]/550 < ori_image_.size[1]/580):
+            ori_image_.thumbnail(
+                (580/ori_image_.size[1]*ori_image_.size[0], 580))
+        else:
+            pass
+    else:
+        pass
+
+    img = ImageTk.PhotoImage(ori_image_)
+    Sample.config(image=img)
+    Sample.image = img
     Text_StateWindow.insert(tk.END, "Loading image...\n")
     Text_StateWindow.see(tk.END)
-    StateCount += 1
 
     # def clear():
     #     height.set("")
     #     width.set("")
 
 
-def test1():
-    global StateCount
+# def test1():
+#     global StateCount
 
-    Text_StateWindow.insert(tk.END, "test1\n")
-    Text_StateWindow.see(tk.END)
-    StateCount += 1
+#     Text_StateWindow.insert(tk.END, "test1\n")
+#     Text_StateWindow.see(tk.END)
+    # StateCount += 1
 
 
-def test2():
-    global StateCount
+# def test2():
+#     global StateCount
 
-    Text_StateWindow.insert(tk.END, "test2\n")
-    Text_StateWindow.see(tk.END)
-    StateCount += 1
+#     Text_StateWindow.insert(tk.END, "test2\n")
+#     Text_StateWindow.see(tk.END)
+#     StateCount += 1
 
 
 def Quit():
@@ -124,6 +144,8 @@ if __name__ == "__main__":
     SubSample.place(x=20, y=70, height=140, width=140)
     InfoSample = tk.Label(LeftTop_frame, text="")
     InfoSample.place(x=100, y=250, anchor="center")
+    Sample = tk.Label(Right_frame)
+    Sample.place(x=20, y=2, height=580, width=550)
 
     # Buttons
     Button_LoadImage = tk.Button(
@@ -133,10 +155,10 @@ if __name__ == "__main__":
                             command=Quit)
     Button_Quit.place(x=160, y=40)
 
-    Button_test1 = tk.Button(Right_frame, text="test1", command=test1)
-    Button_test1.place(relx=0, rely=0.1)
-    Button_test2 = tk.Button(Right_frame, text="test2", command=test2)
-    Button_test2.place(relx=0, rely=0.2)
+    # Button_test1 = tk.Button(Right_frame, text="test1", command=test1)
+    # Button_test1.place(relx=0, rely=0.1)
+    # Button_test2 = tk.Button(Right_frame, text="test2", command=test2)
+    # Button_test2.place(relx=0, rely=0.2)
 
     # Texts
     Text_StateWindow = tk.Text(LeftTop_frame)

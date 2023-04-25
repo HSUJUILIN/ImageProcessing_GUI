@@ -10,7 +10,7 @@ StateCount = 0
 
 
 def ChooseImage():
-
+    global file_path
     file_path = filedialog.askopenfilename(
         title=u'choose file', initialdir=(os.path.expanduser(default_dir)), filetypes=(("png files", "*.png"), ("tif files", "*.tif"),  ("all files", "*.*")))
     filename = os.path.basename(file_path)
@@ -95,6 +95,10 @@ def Tutorial():
     Text_Tutorial.config(state=tk.DISABLED)
 
 
+def RGB2GRAY():
+    print('Tida!!')
+
+
 def SaveFile():
     print('Saving...')
 
@@ -146,6 +150,9 @@ if __name__ == "__main__":
     InfoSample.place(x=100, y=250, anchor="center")
     Sample = tk.Label(Right_frame)
     Sample.place(x=20, y=2, height=580, width=550)
+    Tools_title = tk.Label(
+        LeftBottom_frame, text='Tools', font=("Arial", 15))
+    Tools_title.place(y=0, width=180)
 
     # Buttons
     Button_LoadImage = tk.Button(
@@ -154,6 +161,10 @@ if __name__ == "__main__":
     Button_Quit = tk.Button(LeftTop_frame, text='Quit',
                             command=Quit)
     Button_Quit.place(x=160, y=40)
+
+    Button_RGB2GRAY = tk.Button(
+        LeftBottom_frame, text='to Grey', command=RGB2GRAY)
+    Button_RGB2GRAY.place(x=0, y=40)
 
     # Button_test1 = tk.Button(Right_frame, text="test1", command=test1)
     # Button_test1.place(relx=0, rely=0.1)

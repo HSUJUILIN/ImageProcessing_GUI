@@ -40,7 +40,8 @@ This repositories is still being organized!!!
         second edit: (GMT+8) 2023/04/11 17:15 Add preview image function.  
         third edit: (GMT+8) 2023/04/13 17:28 Add image imformation and the real-time state window (scrollbar).
         fourth edit: (GMT+8) 2023/04/17 15:38 Add ticks, "Quit" event(tick), and the pop-up messagebox before closed GUI.
-        fifth edit: (GMT+8) 2023/04/19 17:31 Add the display of "Right Panel"
+        fifth edit: (GMT+8) 2023/04/19 17:31 Add the display of "Right Panel".
+        sixth edit: (GMT+8) 2023/04/25 16:31 Tune the left-bottom frame.
 
     Note:  
         Autoresize the GUI window. 

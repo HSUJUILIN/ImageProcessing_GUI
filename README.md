@@ -42,6 +42,7 @@ This repositories is still being organized!!!
         fourth edit: (GMT+8) 2023/04/17 15:38 Add ticks, "Quit" event(tick), and the pop-up messagebox before closed GUI.
         fifth edit: (GMT+8) 2023/04/19 17:31 Add the display of "Right Panel".
         sixth edit: (GMT+8) 2023/04/25 16:31 Tune the left-bottom frame.
+        seventh edit: (GMT+8) 2023/05/01 21:13 Tune the image information, add the bottom and the entry. 
 
     Note:  
-        Autoresize the GUI window. 
+        Threshold, Gaussian Blur(custom kernel size) 

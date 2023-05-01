@@ -16,7 +16,7 @@ def ChooseImage():
     filename = os.path.basename(file_path)
     ori_image = Image.open(file_path)
     ori_image_ = Image.open(file_path)
-    info = f"File Name: {filename}\nWidth: {ori_image.width} px\nHeight: {ori_image.height} px\nFormat: {ori_image.format}\n"
+    info = f"File Name: {filename}\nWidth, Height: {ori_image.width}px, {ori_image.height}px\nBits: {ori_image.getbands()}\nFormat: {ori_image.format}\n"
     InfoSample.config(text=info)
 
     if (ori_image.size[0] >= ori_image.size[1]):
@@ -153,6 +153,12 @@ if __name__ == "__main__":
     Tools_title = tk.Label(
         LeftBottom_frame, text='Tools', font=("Arial", 15))
     Tools_title.place(y=0, width=180)
+    Threshold_title = tk.Label(LeftBottom_frame, text='Thresholds')
+    Threshold_title.place(x=5, y=60)
+    Blur_title = tk.Label(LeftBottom_frame, text='Blur kernel size: ')
+    Blur_title.place(x=5, y=110)
+    Blur_unit = tk.Label(LeftBottom_frame, text='px')
+    Blur_unit.place(x=125, y=110)
 
     # Buttons
     Button_LoadImage = tk.Button(
@@ -163,13 +169,13 @@ if __name__ == "__main__":
     Button_Quit.place(x=160, y=40)
 
     Button_RGB2GRAY = tk.Button(
-        LeftBottom_frame, text='to Grey', command=RGB2GRAY)
-    Button_RGB2GRAY.place(x=0, y=40)
+        LeftBottom_frame, text='Grey', command=RGB2GRAY)
+    Button_RGB2GRAY.place(x=5, y=30)
 
-    # Button_test1 = tk.Button(Right_frame, text="test1", command=test1)
-    # Button_test1.place(relx=0, rely=0.1)
-    # Button_test2 = tk.Button(Right_frame, text="test2", command=test2)
-    # Button_test2.place(relx=0, rely=0.2)
+    # Entry
+
+    Entry_Blur = tk.Entry(LeftBottom_frame)
+    Entry_Blur.place(x=100, y=110, width=20)
 
     # Texts
     Text_StateWindow = tk.Text(LeftTop_frame)

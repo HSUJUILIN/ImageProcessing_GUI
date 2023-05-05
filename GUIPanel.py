@@ -99,6 +99,14 @@ def RGB2GRAY():
     print('Tida!!')
 
 
+def ThresholdBar():
+    if (CheckBox_Threshold == 1):
+        ThresholdValue = ScaleBar_Threshold.get()
+        print(ThresholdValue)
+    else:
+        pass
+
+
 def SaveFile():
     print('Saving...')
 
@@ -153,12 +161,12 @@ if __name__ == "__main__":
     Tools_title = tk.Label(
         LeftBottom_frame, text='Tools', font=("Arial", 15))
     Tools_title.place(y=0, width=180)
-    Threshold_title = tk.Label(LeftBottom_frame, text='Thresholds')
-    Threshold_title.place(x=5, y=60)
+    # Threshold_title = tk.Label(LeftBottom_frame, text='Thresholds')
+    # Threshold_title.place(x=5, y=60)
     Blur_title = tk.Label(LeftBottom_frame, text='Blur kernel size: ')
-    Blur_title.place(x=5, y=110)
+    Blur_title.place(x=5, y=125)
     Blur_unit = tk.Label(LeftBottom_frame, text='px')
-    Blur_unit.place(x=125, y=110)
+    Blur_unit.place(x=125, y=125)
 
     # Buttons
     Button_LoadImage = tk.Button(
@@ -173,9 +181,13 @@ if __name__ == "__main__":
     Button_RGB2GRAY.place(x=5, y=30)
 
     # Entry
-
     Entry_Blur = tk.Entry(LeftBottom_frame)
-    Entry_Blur.place(x=100, y=110, width=20)
+    Entry_Blur.place(x=100, y=125, width=20)
+
+    # CheckBoxes
+    CheckBox_Threshold = tk.Checkbutton(
+        LeftBottom_frame, text='Threshold (scroll bar)')
+    CheckBox_Threshold.place(x=5, y=60)
 
     # Texts
     Text_StateWindow = tk.Text(LeftTop_frame)
@@ -189,6 +201,11 @@ if __name__ == "__main__":
     # Separators
     Separator1 = ttk.Separator(LeftTop_frame, orient='horizontal')
     Separator1.place(relx=0, y=280, relwidth=1, relheight=0.01)
+
+    # Scales
+    ScaleBar_Threshold = tk.Scale(
+        LeftBottom_frame, from_=0, to=255, orient='horizontal', length=185, command=ThresholdBar)
+    ScaleBar_Threshold.place(x=5, y=80)
 
     window.mainloop()
 

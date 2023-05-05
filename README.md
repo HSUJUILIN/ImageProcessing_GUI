@@ -43,6 +43,7 @@ This repositories is still being organized!!!
         fifth edit: (GMT+8) 2023/04/19 17:31 Add the display of "Right Panel".
         sixth edit: (GMT+8) 2023/04/25 16:31 Tune the left-bottom frame.
         seventh edit: (GMT+8) 2023/05/01 21:13 Tune the image information, add the bottom and the entry. 
+        eighth edit: (GMT+8) 2023/05/05 18:00 Add the scale widget and the checkbox of threshold function.
 
     Note:  
-        Threshold, Gaussian Blur(custom kernel size) 
+        Threshold, Gaussian Blur(custom kernel size). RealTime threshold value. 

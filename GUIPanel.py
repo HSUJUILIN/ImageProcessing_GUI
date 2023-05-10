@@ -99,12 +99,14 @@ def RGB2GRAY():
     print('Tida!!')
 
 
-def ThresholdBar():
-    if (CheckBox_Threshold == 1):
-        ThresholdValue = ScaleBar_Threshold.get()
-        print(ThresholdValue)
-    else:
-        pass
+def ThresholdBar(CheckBox_Threshold_State):
+    print(CheckBox_Threshold_State.get())
+    # if (CheckBox_Threshold_State.get() == 'ON'):
+    # ThresholdValue = ScaleBar_Threshold.get()
+    # print(ThresholdValue)
+    # print('CCCCCCCC')
+    # else:
+    # pass
 
 
 def SaveFile():
@@ -185,9 +187,11 @@ if __name__ == "__main__":
     Entry_Blur.place(x=100, y=125, width=20)
 
     # CheckBoxes
+    CheckBox_Threshold_State = tk.StringVar()
     CheckBox_Threshold = tk.Checkbutton(
-        LeftBottom_frame, text='Threshold (scroll bar)')
+        LeftBottom_frame, text='Threshold (scroll bar)', variable=CheckBox_Threshold_State, onvalue='ON', offvalue='OFF')
     CheckBox_Threshold.place(x=5, y=60)
+    CheckBox_Threshold.deselect()
 
     # Texts
     Text_StateWindow = tk.Text(LeftTop_frame)
@@ -204,7 +208,7 @@ if __name__ == "__main__":
 
     # Scales
     ScaleBar_Threshold = tk.Scale(
-        LeftBottom_frame, from_=0, to=255, orient='horizontal', length=185, command=ThresholdBar)
+        LeftBottom_frame, from_=0, to=255, orient='horizontal', length=185, command=ThresholdBar(CheckBox_Threshold_State))
     ScaleBar_Threshold.place(x=5, y=80)
 
     window.mainloop()

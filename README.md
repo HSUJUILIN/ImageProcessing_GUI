@@ -46,4 +46,7 @@ This repositories is still being organized!!!
         eighth edit: (GMT+8) 2023/05/05 18:00 Add the scale widget and the checkbox of threshold function.
 
     Note:  
-        Threshold, Gaussian Blur(custom kernel size). RealTime threshold value. 
+        Threshold, Gaussian Blur(custom kernel size). RealTime threshold value.
+        
+    Process:
+        If the checkbox is START("1"), we can get the value of scale widget. If the checkbox is END("0"), we can't get.
